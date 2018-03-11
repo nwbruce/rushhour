@@ -27,15 +27,17 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 add_subdirectory(${CMAKE_BINARY_DIR}/googletest-src ${CMAKE_BINARY_DIR}/googletest-build EXCLUDE_FROM_ALL)
 
 #########################################
-# rushhour_gtest
+# gtest executable
 #########################################
 
 set(sources
-  rushhour.t.cpp)
+  rushhour_inputschedule.t.cpp)
 
 add_executable(rushhour_gtest
   ${sources})
 
-target_link_libraries(rushhour_gtest gmock_main)
+target_link_libraries(rushhour_gtest
+  gmock_main
+  rushhour)
 
 # add_test(NAME example_test COMMAND example)

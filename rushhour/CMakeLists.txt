@@ -2,8 +2,11 @@
 # rushhour library
 #########################################
 
+set(headers
+  rushhour_inputschedule.h)
+
 set(sources
-  rushhour.cpp)
+  rushhour_inputschedule.cpp)
 
 add_library(rushhour
   ${sources})
