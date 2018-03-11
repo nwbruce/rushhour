@@ -13,8 +13,14 @@ struct DerivedInputSchedule : public InputSchedule {
 };
 }  // namespace
 
-TEST(InputSchedule, CanConstructDerivedClass) {
-  DerivedInputSchedule sched;
+TEST(InputSchedule, IteratorWorks) {
+  using namespace ::testing;
+  DerivedInputSchedule schedule;
+
+  EXPECT_CALL(schedule, at(0)).WillOnce(Return(std::chrono::nanoseconds(32)));
+
+  auto iter = schedule.begin();
+  EXPECT_EQ(std::chrono::nanoseconds(32), *iter);
 }
 
 }  // namespace rushhour
