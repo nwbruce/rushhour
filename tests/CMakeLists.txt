@@ -26,6 +26,9 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 # the gtest and gtest_main targets.
 add_subdirectory(${CMAKE_BINARY_DIR}/googletest-src ${CMAKE_BINARY_DIR}/googletest-build EXCLUDE_FROM_ALL)
 
+target_include_directories(gmock_main SYSTEM BEFORE INTERFACE
+  "${gtest_SOURCE_DIR}/include" "${gmock_SOURCE_DIR}/include")
+
 #########################################
 # gtest executable
 #########################################
