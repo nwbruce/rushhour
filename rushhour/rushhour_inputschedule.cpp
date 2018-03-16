@@ -10,9 +10,22 @@ InputSchedule::Iterator::Iterator(const InputSchedule& input_schedule, std::size
 bool InputSchedule::Iterator::operator!=(const Iterator& rhs) const {
   return index_ != rhs.index_;
 }
-void InputSchedule::Iterator::operator++() {
-  index_++;
+
+bool InputSchedule::Iterator::operator==(const Iterator& rhs) const {
+  return index_ == rhs.index_;
 }
+
+InputSchedule::Iterator& InputSchedule::Iterator::operator++() {
+  index_++;
+  return *this;
+}
+
+InputSchedule::Iterator InputSchedule::Iterator::operator++(int) {
+  Iterator temp(*this);
+  operator++();
+  return temp;
+}
+
 std::chrono::nanoseconds InputSchedule::Iterator::operator*() const {
   return input_schedule_[index_];
 }

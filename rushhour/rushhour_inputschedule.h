@@ -15,7 +15,9 @@ public:
   struct Iterator {
     Iterator(const InputSchedule& input_schedule, std::size_t index);
     bool operator!=(const Iterator& rhs) const;
-    void operator++();
+    bool operator==(const Iterator& rhs) const;
+    Iterator& operator++();
+    Iterator operator++(int);
     std::chrono::nanoseconds operator*() const;
   private:
     const InputSchedule& input_schedule_;
