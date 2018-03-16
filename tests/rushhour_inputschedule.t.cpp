@@ -16,7 +16,6 @@ struct DerivedInputSchedule : public InputSchedule {
 }  // namespace
 
 TEST(InputSchedule, IteratorPreIncrementWorks) {
-  using namespace ::testing;
   DerivedInputSchedule schedule;
   schedule.data.push_back(11);
   schedule.data.push_back(22);
@@ -39,7 +38,6 @@ TEST(InputSchedule, IteratorPreIncrementWorks) {
 }
 
 TEST(InputSchedule, IteratorPostIncrementWorks) {
-  using namespace ::testing;
   DerivedInputSchedule schedule;
   schedule.data.push_back(11);
   schedule.data.push_back(22);
@@ -62,7 +60,6 @@ TEST(InputSchedule, IteratorPostIncrementWorks) {
 }
 
 TEST(InputSchedule, IteratorWorksInForLoop) {
-  using namespace ::testing;
   DerivedInputSchedule schedule;
   schedule.data.push_back(11);
   schedule.data.push_back(22);

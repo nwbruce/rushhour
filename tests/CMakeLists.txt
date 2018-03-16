@@ -34,7 +34,8 @@ target_include_directories(gmock_main SYSTEM BEFORE INTERFACE
 #########################################
 
 set(sources
-  rushhour_inputschedule.t.cpp)
+  rushhour_inputschedule.t.cpp
+  rushhour_unlimitedinputschedule.t.cpp)
 
 add_executable(rushhour_gtest
   ${sources})
