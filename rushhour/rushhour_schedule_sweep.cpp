@@ -1,10 +1,11 @@
-#include "rushhour_sweepinputschedule.h"
 #include <stdexcept>
 #include <limits>
+#include "rushhour_schedule_sweep.h"
 
 namespace rushhour {
+namespace schedule {
 
-SweepInputSchedule::SweepInputSchedule(
+Sweep::Sweep(
     double starting_rate_per_second,
     double ending_rate_per_second,
     std::size_t count)
@@ -12,11 +13,11 @@ SweepInputSchedule::SweepInputSchedule(
 , end_rate_(ending_rate_per_second)
 , count_(count) {}
 
-std::size_t SweepInputSchedule::size() const {
+std::size_t Sweep::size() const {
   return count_;
 }
 
-std::chrono::nanoseconds SweepInputSchedule::operator[](std::size_t index) const {
+std::chrono::nanoseconds Sweep::operator[](std::size_t index) const {
   if (count_ == 0 || index >= count_) {
     throw std::out_of_range("index out of range");
   }
@@ -35,4 +36,5 @@ std::chrono::nanoseconds SweepInputSchedule::operator[](std::size_t index) const
   return std::chrono::nanoseconds(ns);
 }
 
+}  // namespace schedule
 }  // namespace rushhour

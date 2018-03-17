@@ -29,14 +29,15 @@ add_subdirectory(${CMAKE_BINARY_DIR}/googletest-src ${CMAKE_BINARY_DIR}/googlete
 target_include_directories(gmock_main SYSTEM BEFORE INTERFACE
   "${gtest_SOURCE_DIR}/include" "${gmock_SOURCE_DIR}/include")
 
+
 #########################################
 # gtest executable
 #########################################
 
 set(sources
-  rushhour_inputschedule.t.cpp
-  rushhour_unlimitedinputschedule.t.cpp
-  rushhour_sweepinputschedule.t.cpp)
+  rushhour_schedule_schedule.t.cpp
+  rushhour_schedule_unlimited.t.cpp
+  rushhour_schedule_sweep.t.cpp)
 
 add_executable(rushhour_gtest
   ${sources})

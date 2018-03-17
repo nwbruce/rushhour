@@ -3,14 +3,14 @@
 #########################################
 
 set(headers
-  rushhour_inputschedule.h
-  rushhour_unlimitedinputschedule.h
-  rushhour_sweepinputschedule.h)
+  rushhour_schedule_schedule.h
+  rushhour_schedule_unlimited.h
+  rushhour_schedule_sweep.h)
 
 set(sources
-  rushhour_inputschedule.cpp
-  rushhour_unlimitedinputschedule.cpp
-  rushhour_sweepinputschedule.cpp)
+  rushhour_schedule_schedule.cpp
+  rushhour_schedule_unlimited.cpp
+  rushhour_schedule_sweep.cpp)
 
 add_library(rushhour
   ${sources})

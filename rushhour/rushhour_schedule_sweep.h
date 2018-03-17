@@ -1,15 +1,17 @@
 #ifndef RUSHHOUR_SWEEPINPUTSCHEDULE_H_
 #define RUSHHOUR_SWEEPINPUTSCHEDULE_H_
 
-#include "rushhour_inputschedule.h"
 #include <chrono>
 #include <cstdint>
 
-namespace rushhour {
+#include "rushhour_schedule_schedule.h"
 
-class SweepInputSchedule : public InputSchedule {
+namespace rushhour {
+namespace schedule {
+
+class Sweep : public Schedule {
 public:
-  SweepInputSchedule(double starting_rate_per_second,
+  Sweep(double starting_rate_per_second,
                      double ending_rate_per_second,
                      std::size_t count);
 
@@ -22,6 +24,7 @@ private:
   std::size_t count_;
 };
 
+}  // namespace schedule
 }  // namespace rushhour
 
 #endif  // RUSHHOUR_SWEEPINPUTSCHEDULE_H_
