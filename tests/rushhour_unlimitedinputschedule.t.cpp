@@ -11,5 +11,16 @@ TEST(UnlimitedInputSchedule, RightSizeAndValues) {
   }
 }
 
+TEST(UnlimitedInputSchedule, SizeZero) {
+  UnlimitedInputSchedule schedule(0);
+  ASSERT_EQ(0, schedule.size());
+  EXPECT_THROW(schedule[0], std::out_of_range);
+}
+
+TEST(UnlimitedInputSchedule, OutOfBounds) {
+  UnlimitedInputSchedule schedule(5);
+  ASSERT_EQ(5, schedule.size());
+  EXPECT_THROW(schedule[5], std::out_of_range);
+}
 
 }  // namespace rushhour

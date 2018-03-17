@@ -4,11 +4,13 @@
 
 set(headers
   rushhour_inputschedule.h
-  rushhour_unlimitedinputschedule.h)
+  rushhour_unlimitedinputschedule.h
+  rushhour_sweepinputschedule.h)
 
 set(sources
   rushhour_inputschedule.cpp
-  rushhour_unlimitedinputschedule.cpp)
+  rushhour_unlimitedinputschedule.cpp
+  rushhour_sweepinputschedule.cpp)
 
 add_library(rushhour
   ${sources})
