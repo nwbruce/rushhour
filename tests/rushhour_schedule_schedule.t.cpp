@@ -71,7 +71,8 @@ BOOST_AUTO_TEST_CASE(Schedule_IteratorWorksInForLoop) {
     actual.push_back(ns.count());
   }
 
-  BOOST_CHECK(schedule.data == actual);
+  BOOST_CHECK_EQUAL_COLLECTIONS(schedule.data.begin(), schedule.data.end(),
+                                actual.begin(), actual.end());
 }
 
 }  // namespace schedule
