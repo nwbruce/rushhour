@@ -7,7 +7,7 @@ namespace schedule {
 Fixed::Fixed(
     double rate_per_second,
     std::size_t count)
-: period_(1.0e9 / rate_per_second)
+: period_(static_cast<int64_t>(1.0e9 / rate_per_second))
 , count_(count) {}
 
 std::size_t Fixed::size() const {

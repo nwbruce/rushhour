@@ -1,4 +1,4 @@
-#include <gtest/gtest.h>
+#include <boost/test/unit_test.hpp>
 #include <rushhour_schedule_schedule.h>
 
 namespace rushhour {
@@ -16,51 +16,51 @@ struct DerivedInputSchedule : public Schedule {
 };
 }  // namespace
 
-TEST(Schedule, IteratorPreIncrementWorks) {
+BOOST_AUTO_TEST_CASE(Schedule_IteratorPreIncrementWorks) {
   DerivedInputSchedule schedule;
   schedule.data.push_back(11);
   schedule.data.push_back(22);
   schedule.data.push_back(33);
 
   Schedule::Iterator iter = schedule.begin();
-  EXPECT_NE(schedule.end(), iter);
-  EXPECT_EQ(std::chrono::nanoseconds(11), *iter);
+  BOOST_CHECK(schedule.end() != iter);
+  BOOST_CHECK_EQUAL(11, (*iter).count());
   ++iter;
 
-  EXPECT_NE(schedule.end(), iter);
-  EXPECT_EQ(std::chrono::nanoseconds(22), *iter);
+  BOOST_CHECK(schedule.end() != iter);
+  BOOST_CHECK_EQUAL(22, (*iter).count());
   ++iter;
 
-  EXPECT_NE(schedule.end(), iter);
-  EXPECT_EQ(std::chrono::nanoseconds(33), *iter);
+  BOOST_CHECK(schedule.end() != iter);
+  BOOST_CHECK_EQUAL(33, (*iter).count());
   ++iter;
 
-  EXPECT_EQ(schedule.end(), iter);
+  BOOST_CHECK(schedule.end() == iter);
 }
 
-TEST(Schedule, IteratorPostIncrementWorks) {
+BOOST_AUTO_TEST_CASE(Schedule_IteratorPostIncrementWorks) {
   DerivedInputSchedule schedule;
   schedule.data.push_back(11);
   schedule.data.push_back(22);
   schedule.data.push_back(33);
 
   Schedule::Iterator iter = schedule.begin();
-  EXPECT_NE(schedule.end(), iter);
-  EXPECT_EQ(std::chrono::nanoseconds(11), *iter);
+  BOOST_CHECK(schedule.end() != iter);
+  BOOST_CHECK_EQUAL(11, (*iter).count());
   iter++;
 
-  EXPECT_NE(schedule.end(), iter);
-  EXPECT_EQ(std::chrono::nanoseconds(22), *iter);
+  BOOST_CHECK(schedule.end() != iter);
+  BOOST_CHECK_EQUAL(22, (*iter).count());
   iter++;
 
-  EXPECT_NE(schedule.end(), iter);
-  EXPECT_EQ(std::chrono::nanoseconds(33), *iter);
+  BOOST_CHECK(schedule.end() != iter);
+  BOOST_CHECK_EQUAL(33, (*iter).count());
   iter++;
 
-  EXPECT_EQ(schedule.end(), iter);
+  BOOST_CHECK(schedule.end() == iter);
 }
 
-TEST(Schedule, IteratorWorksInForLoop) {
+BOOST_AUTO_TEST_CASE(Schedule_IteratorWorksInForLoop) {
   DerivedInputSchedule schedule;
   schedule.data.push_back(11);
   schedule.data.push_back(22);
@@ -71,7 +71,7 @@ TEST(Schedule, IteratorWorksInForLoop) {
     actual.push_back(ns.count());
   }
 
-  EXPECT_EQ(schedule.data, actual);
+  BOOST_CHECK(schedule.data == actual);
 }
 
 }  // namespace schedule
