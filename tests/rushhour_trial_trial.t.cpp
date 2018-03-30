@@ -33,6 +33,7 @@ BOOST_AUTO_TEST_CASE(Trial_NoErrorsOnFixedSchedule) {
   auto prev = clock_range.begin_time();
   for (auto& result : results) {
     BOOST_CHECK_GT(result.elapsed().count(), 0);
+    BOOST_CHECK(result.succeeded());
 
     BOOST_CHECK(clock_range.contains(result.started()));
     BOOST_CHECK(clock_range.contains(result.ended()));
@@ -45,6 +46,14 @@ BOOST_AUTO_TEST_CASE(Trial_NoErrorsOnFixedSchedule) {
 
   double rate_avg = rate_sum / results.size();
   BOOST_CHECK_CLOSE(150.0, rate_avg, 5.0);
+
+  for (auto called : prepare_called) {
+    BOOST_CHECK(called);
+  }
+
+  for (auto called : send_called) {
+    BOOST_CHECK(called);
+  }
 }
 
 } /* namespace trial */
