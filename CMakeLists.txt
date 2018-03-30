@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 2.8.11)
+cmake_minimum_required (VERSION 3.10.3)
 project(rushhour)
 
 set (rushhour_VERSION_MAJOR 0)

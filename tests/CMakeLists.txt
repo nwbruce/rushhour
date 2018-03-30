@@ -7,7 +7,9 @@ set(sources
   rushhour_schedule_schedule.t.cpp
   rushhour_schedule_unlimited.t.cpp
   rushhour_schedule_sweep.t.cpp
-  rushhour_schedule_fixed.t.cpp)
+  rushhour_schedule_fixed.t.cpp
+  rushhour_trial_completionreport.t.cpp
+  rushhour_trial_trackingcontext.t.cpp)
 
 set(Boost_USE_STATIC_LIBS ON)
 find_package(Boost REQUIRED COMPONENTS unit_test_framework)
