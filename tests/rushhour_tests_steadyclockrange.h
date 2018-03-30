@@ -23,6 +23,14 @@ struct SteadyClockRange {
     return end_ - begin_;
   }
 
+  inline std::chrono::steady_clock::time_point begin_time() const {
+    return begin_;
+  }
+
+  inline std::chrono::steady_clock::time_point end_time() const {
+    return end_;
+  }
+
 private:
   std::chrono::steady_clock::time_point begin_;
   std::chrono::steady_clock::time_point end_;

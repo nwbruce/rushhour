@@ -13,6 +13,8 @@ public:
          bool succeeded);
 
   std::chrono::nanoseconds elapsed() const;
+  const std::chrono::steady_clock::time_point& started() const;
+  const std::chrono::steady_clock::time_point& ended() const;
   bool succeeded() const;
 
 private:

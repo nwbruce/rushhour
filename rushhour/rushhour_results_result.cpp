@@ -19,5 +19,14 @@ bool Result::succeeded() const {
   return succeeded_;
 }
 
+const std::chrono::steady_clock::time_point& Result::started() const {
+  return start_;
+}
+
+const std::chrono::steady_clock::time_point& Result::ended() const {
+  return end_;
+}
+
+
 } /* namespace results */
 } /* namespace rushhour */

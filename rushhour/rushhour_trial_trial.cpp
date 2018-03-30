@@ -5,6 +5,14 @@
 #include <thread>
 #include <vector>
 
+#include <sstream>
+#include <iostream>
+#define LOG_IT {\
+                 std::ostringstream oss; \
+                 oss << std::this_thread::get_id() << ": " << __LINE__ << std::endl; \
+                 std::cerr << oss.str(); \
+               }
+
 namespace rushhour {
 namespace trial {
 
@@ -12,27 +20,27 @@ namespace {
 
 void empty_do_prepare(std::uint32_t) {}
 
-void run_one(const schedule::Schedule* input_schedule,
+void run_one(const schedule::Schedule& input_schedule,
              std::size_t total_threads,
              std::size_t thread_index,
-             std::shared_future<std::chrono::steady_clock::time_point> begin_time_future,
-             Trial::PrepareFunction* do_prepare,
-             Trial::SendFunction* do_send,
-             std::vector<TrackingContext>* tracking_contexts) {
+             std::shared_future<std::chrono::steady_clock::time_point>& begin_time_future,
+             Trial::PrepareFunction& do_prepare,
+             Trial::SendFunction& do_send,
+             std::vector<TrackingContext>& tracking_contexts) {
   std::size_t i = 0;
   auto target_time = begin_time_future.get();
 
-  for (const auto& time_delta : *input_schedule) {
+  for (const auto& time_delta : input_schedule) {
     target_time += time_delta;
 
     if (i % total_threads == thread_index) {
-      (*do_prepare)(i);
+      do_prepare(i);
 
       std::this_thread::sleep_until(target_time);
 
-      auto completion_report = (*tracking_contexts)[i].completion_report();
-      (*tracking_contexts)[i].start();
-      (*do_send)(completion_report);
+      auto completion_report = tracking_contexts[i].completion_report();
+      tracking_contexts[i].start();
+      do_send(completion_report);
     }
 
     i++;
@@ -64,24 +72,13 @@ std::vector<results::Result> Trial::run(const schedule::Schedule& input_schedule
   std::shared_future<std::chrono::steady_clock::time_point> begin_time_future(begin_time_promise.get_future());
 
   for (std::size_t t = 1; t <= additional_threads; ++t) {
-    auto f = std::bind(run_one, &input_schedule,
-                                additional_threads + 1,
-                                t,
-                                begin_time_future,
-                                &do_prepare,
-                                &do_send,
-                                &tracking_contexts);
-    threads.emplace_back(f);
+    threads.emplace_back([&](){
+      run_one(input_schedule, additional_threads + 1, t, begin_time_future, do_prepare, do_send, tracking_contexts);
+    });
   }
 
   begin_time_promise.set_value(std::chrono::steady_clock::now());
-  run_one(&input_schedule,
-          additional_threads + 1,
-          0,
-          begin_time_future,
-          &do_prepare,
-          &do_send,
-          &tracking_contexts);
+  run_one(input_schedule, additional_threads + 1, 0, begin_time_future, do_prepare, do_send, tracking_contexts);
 
   for (auto& thr : threads) {
     thr.join();
