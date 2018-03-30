@@ -2,6 +2,7 @@
 #define RUSHHOUR_RUSHHOUR_TRIAL_TRACKINGCONTEXT_H_
 
 #include "rushhour_trial_completionreport.h"
+#include "rushhour_results_result.h"
 #include <cstdint>
 #include <chrono>
 #include <future>
@@ -11,25 +12,19 @@ namespace trial {
 
 class TrackingContext {
 public:
-  explicit TrackingContext(std::uint32_t index);
+  TrackingContext(std::uint32_t index);
 
   CompletionReport* completion_report();
 
   void start();
 
-  void wait();
-
-  std::uint32_t index() const;
-  bool succeeded() const;
-  std::chrono::nanoseconds elapsed() const;
+  results::Result get_result(const std::chrono::steady_clock::time_point& timeout_time);
 
 private:
-  std::uint32_t index_;
   std::promise<CompletionReport::Result> promise_;
   std::future<CompletionReport::Result> future_;
   CompletionReport completion_report_;
   std::chrono::steady_clock::time_point started_;
-  CompletionReport::Result completion_result_;
 };
 
 } /* namespace trial */

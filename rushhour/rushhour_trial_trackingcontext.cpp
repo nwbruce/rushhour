@@ -4,10 +4,9 @@ namespace rushhour {
 namespace trial {
 
 TrackingContext::TrackingContext(std::uint32_t index)
-: index_(index)
-, promise_()
+: promise_()
 , future_(promise_.get_future())
-, completion_report_(std::move(promise_), index_) {}
+, completion_report_(std::move(promise_), index) {}
 
 CompletionReport* TrackingContext::completion_report() {
   return &completion_report_;
@@ -17,20 +16,14 @@ void TrackingContext::start() {
   started_ = std::chrono::steady_clock::now();
 }
 
-void TrackingContext::wait() {
-  completion_result_ = future_.get();
-}
-
-std::uint32_t TrackingContext::index() const {
-  return index_;
-}
-
-bool TrackingContext::succeeded() const {
-  return completion_result_.first;
-}
-
-std::chrono::nanoseconds TrackingContext::elapsed() const {
-  return completion_result_.second - started_;
+results::Result TrackingContext::get_result(const std::chrono::steady_clock::time_point& timeout_time) {
+  auto status = future_.wait_until(timeout_time);
+  if (status == std::future_status::ready) {
+    CompletionReport::Result completion_result = future_.get();
+    return results::Result(started_, completion_result.second, completion_result.first);
+  } else {
+    return results::Result(started_, std::chrono::steady_clock::now(), false);
+  }
 }
 
 } /* namespace trial */

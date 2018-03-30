@@ -8,7 +8,9 @@ set(sources
   rushhour_schedule_sweep.cpp
   rushhour_schedule_fixed.cpp
   rushhour_trial_completionreport.cpp
-  rushhour_trial_trackingcontext.cpp)
+  rushhour_trial_trackingcontext.cpp
+  rushhour_trial_trial.cpp
+  rushhour_results_result.cpp)
 
 add_library(rushhour
   ${sources})

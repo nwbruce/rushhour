@@ -4,6 +4,8 @@
 
 #include <thread>
 
+#include <iostream>
+
 namespace rushhour {
 namespace trial {
 
@@ -19,12 +21,11 @@ BOOST_AUTO_TEST_CASE(TrackingContext_Succeeded) {
   tracking_context.completion_report()->succeeded();
   clock_range.end();
 
-  tracking_context.wait();
+  auto result = tracking_context.get_result(std::chrono::steady_clock::now());
 
-  BOOST_CHECK_EQUAL(99u, tracking_context.index());
-  BOOST_CHECK(tracking_context.succeeded());
-  BOOST_CHECK(tracking_context.elapsed() >= std::chrono::milliseconds(249));
-  BOOST_CHECK(tracking_context.elapsed() <= clock_range.duration());
+  BOOST_CHECK(result.succeeded());
+  BOOST_CHECK(result.elapsed() >= std::chrono::milliseconds(249));
+  BOOST_CHECK_LE(result.elapsed().count(), clock_range.duration().count());
 }
 
 BOOST_AUTO_TEST_CASE(TrackingContext_Failed) {
@@ -39,12 +40,26 @@ BOOST_AUTO_TEST_CASE(TrackingContext_Failed) {
   tracking_context.completion_report()->failed();
   clock_range.end();
 
-  tracking_context.wait();
+  auto result = tracking_context.get_result(std::chrono::steady_clock::now());
 
-  BOOST_CHECK_EQUAL(99u, tracking_context.index());
-  BOOST_CHECK(!tracking_context.succeeded());
-  BOOST_CHECK(tracking_context.elapsed() >= std::chrono::milliseconds(249));
-  BOOST_CHECK(tracking_context.elapsed() <= clock_range.duration());
+  BOOST_CHECK(!result.succeeded());
+  BOOST_CHECK(result.elapsed() >= std::chrono::milliseconds(249));
+  BOOST_CHECK_LE(result.elapsed().count(), clock_range.duration().count());
+}
+
+BOOST_AUTO_TEST_CASE(TrackingContext_TimedOut) {
+  TrackingContext tracking_context(99u);
+
+  tests::SteadyClockRange clock_range;
+  clock_range.begin();
+  tracking_context.start();
+
+  auto result = tracking_context.get_result(std::chrono::steady_clock::now() + std::chrono::milliseconds(250));
+  clock_range.end();
+
+  BOOST_CHECK(!result.succeeded());
+  BOOST_CHECK(result.elapsed() >= std::chrono::milliseconds(249));
+  BOOST_CHECK_LE(result.elapsed().count(), clock_range.duration().count());
 }
 
 } /* namespace trial */
