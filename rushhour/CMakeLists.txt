@@ -11,7 +11,8 @@ set(sources
   rushhour_trial_trackingcontext.cpp
   rushhour_trial_trial.cpp
   rushhour_results_result.cpp
-  rushhour_results_stats.cpp)
+  rushhour_results_stats.cpp
+  rushhour_results_summary.cpp)
 
 add_library(rushhour
   ${sources})

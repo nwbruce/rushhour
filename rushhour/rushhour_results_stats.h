@@ -17,16 +17,14 @@ public:
   double min() const;
   double max() const;
   double stdev() const;
-  double percentile(double k);
+  double percentile(double k) const;
 
 private:
   double sum_;
   double min_;
   double max_;
-  std::vector<double> data_;
-  bool data_unsorted_;
-
-  void sort_if_needed() const;
+  mutable std::vector<double> data_;
+  mutable bool data_unsorted_;
 };
 
 } /* namespace results */

@@ -70,7 +70,10 @@ double Stats::stdev() const {
   }
 }
 
-double Stats::percentile(double p) {
+double Stats::percentile(double p) const {
+  if (count() < 2) {
+    return 0.0;
+  }
   if (data_unsorted_) {
     std::sort(data_.begin(), data_.end());
     data_unsorted_ = false;
@@ -80,10 +83,8 @@ double Stats::percentile(double p) {
   double rank_f = std::modf(rank, &rank_i);
   std::size_t index = static_cast<std::size_t>(rank_i) - 1;
   if (index + 1 >= count()) {
-    // rank is a whole number, just get the element
     return data_[index];
   } else {
-    // rank is not a whole number, interpolate
     return (data_[index + 1] - data_[index]) * rank_f + data_[index];
   }
 }
