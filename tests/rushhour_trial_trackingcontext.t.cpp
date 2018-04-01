@@ -1,6 +1,6 @@
 #include <boost/test/unit_test.hpp>
-#include "rushhour_trial_trackingcontext.h"
-#include "rushhour_tests_steadyclockrange.h"
+#include <rushhour_trial_trackingcontext.h>
+#include <rushhour_tests_steadyclockrange.h>
 #include <thread>
 
 namespace rushhour {

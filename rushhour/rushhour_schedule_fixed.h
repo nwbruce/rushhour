@@ -1,7 +1,7 @@
 #ifndef RUSHHOUR_FIXEDINPUTSCHEDULE_H_
 #define RUSHHOUR_FIXEDINPUTSCHEDULE_H_
 
-#include "rushhour_schedule_schedule.h"
+#include <rushhour_schedule_schedule.h>
 #include <chrono>
 #include <cstdint>
 

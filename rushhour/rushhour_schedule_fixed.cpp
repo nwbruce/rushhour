@@ -1,4 +1,4 @@
-#include "rushhour_schedule_fixed.h"
+#include <rushhour_schedule_fixed.h>
 #include <stdexcept>
 
 namespace rushhour {

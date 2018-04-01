@@ -1,5 +1,5 @@
 #include <boost/test/unit_test.hpp>
-#include "rushhour_results_summary.h"
+#include <rushhour_results_summary.h>
 #include <iostream>
 
 namespace rushhour {

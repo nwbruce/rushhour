@@ -1,8 +1,8 @@
 #ifndef RUSHHOUR_RUSHHOUR_RESULTS_SUMMARY_H_
 #define RUSHHOUR_RUSHHOUR_RESULTS_SUMMARY_H_
 
-#include "rushhour_results_result.h"
-#include "rushhour_results_stats.h"
+#include <rushhour_results_result.h>
+#include <rushhour_results_stats.h>
 #include <ostream>
 #include <vector>
 

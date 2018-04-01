@@ -1,9 +1,9 @@
 #ifndef RUSHHOUR_RUSHHOUR_TRIAL_TRIAL_H_
 #define RUSHHOUR_RUSHHOUR_TRIAL_TRIAL_H_
 
-#include "rushhour_trial_completionreport.h"
-#include "rushhour_schedule_schedule.h"
-#include "rushhour_results_result.h"
+#include <rushhour_trial_completionreport.h>
+#include <rushhour_schedule_schedule.h>
+#include <rushhour_results_result.h>
 #include <chrono>
 #include <functional>
 #include <vector>

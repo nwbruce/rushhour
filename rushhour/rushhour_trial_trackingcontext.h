@@ -1,8 +1,8 @@
 #ifndef RUSHHOUR_RUSHHOUR_TRIAL_TRACKINGCONTEXT_H_
 #define RUSHHOUR_RUSHHOUR_TRIAL_TRACKINGCONTEXT_H_
 
-#include "rushhour_trial_completionreport.h"
-#include "rushhour_results_result.h"
+#include <rushhour_trial_completionreport.h>
+#include <rushhour_results_result.h>
 #include <cstdint>
 #include <chrono>
 #include <future>

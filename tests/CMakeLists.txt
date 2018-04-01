@@ -24,7 +24,7 @@ add_executable(rushhour_test
   ${sources})
 
 target_include_directories(rushhour_test
-  PUBLIC ${Boost_INCLUDE_DIRS})
+  PUBLIC ${Boost_INCLUDE_DIRS} ../rushhour .)
 
 target_link_libraries(rushhour_test
   rushhour ${Boost_LIBRARIES})

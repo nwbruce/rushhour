@@ -1,5 +1,5 @@
 #include <stdexcept>
-#include "rushhour_schedule_unlimited.h"
+#include <rushhour_schedule_unlimited.h>
 
 namespace rushhour {
 namespace schedule {

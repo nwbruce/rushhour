@@ -1,4 +1,4 @@
-#include "rushhour_trial_completionreport.h"
+#include <rushhour_trial_completionreport.h>
 
 namespace rushhour {
 namespace trial {

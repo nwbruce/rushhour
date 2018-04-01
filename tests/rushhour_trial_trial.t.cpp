@@ -1,7 +1,7 @@
 #include <boost/test/unit_test.hpp>
-#include "rushhour_trial_trial.h"
-#include "rushhour_schedule_fixed.h"
-#include "rushhour_tests_steadyclockrange.h"
+#include <rushhour_trial_trial.h>
+#include <rushhour_schedule_fixed.h>
+#include <rushhour_tests_steadyclockrange.h>
 #include <unordered_set>
 
 namespace rushhour {

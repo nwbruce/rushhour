@@ -1,4 +1,4 @@
-#include "rushhour_results_summary.h"
+#include <rushhour_results_summary.h>
 
 namespace rushhour {
 namespace results {

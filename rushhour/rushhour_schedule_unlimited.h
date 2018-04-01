@@ -4,7 +4,7 @@
 #include <chrono>
 #include <cstdint>
 
-#include "rushhour_schedule_schedule.h"
+#include <rushhour_schedule_schedule.h>
 
 namespace rushhour {
 namespace schedule {

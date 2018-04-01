@@ -1,6 +1,6 @@
 #include <stdexcept>
 #include <limits>
-#include "rushhour_schedule_sweep.h"
+#include <rushhour_schedule_sweep.h>
 
 namespace rushhour {
 namespace schedule {
