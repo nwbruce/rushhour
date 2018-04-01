@@ -28,7 +28,7 @@ private:
 
 std::ostream& operator<<(std::ostream&, const Summary&);
 
-} /* namespace results */
-} /* namespace rushhour */
+}  // namespace results
+}  // namespace rushhour
 
-#endif /* RUSHHOUR_RUSHHOUR_RESULTS_SUMMARY_H_ */
+#endif  // RUSHHOUR_RUSHHOUR_RESULTS_SUMMARY_H_

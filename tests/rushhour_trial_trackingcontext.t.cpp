@@ -59,5 +59,5 @@ BOOST_AUTO_TEST_CASE(TrackingContext_TimedOut) {
   BOOST_CHECK_LE(result.elapsed().count(), clock_range.duration().count());
 }
 
-} /* namespace trial */
-} /* namespace rushhour */
+}  // namespace trial
+}  // namespace rushhour

@@ -23,5 +23,5 @@ BOOST_AUTO_TEST_CASE(Stats_ComputedCorrectly) {
   BOOST_CHECK_CLOSE(89.3, stats.percentile(0.95), 0.2);
 }
 
-} /* namespace results */
-} /* namespace rushhour */
+}  // namespace results
+}  // namespace rushhour

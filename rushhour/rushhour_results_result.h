@@ -23,7 +23,7 @@ private:
   bool succeeded_;
 };
 
-} /* namespace results */
-} /* namespace rushhour */
+}  // namespace results
+}  // namespace rushhour
 
-#endif /* RUSHHOUR_RUSHHOUR_RESULTS_RESULT_H_ */
+#endif  // RUSHHOUR_RUSHHOUR_RESULTS_RESULT_H_

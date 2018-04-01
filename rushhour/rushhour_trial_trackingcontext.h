@@ -27,7 +27,7 @@ private:
   std::chrono::steady_clock::time_point started_;
 };
 
-} /* namespace trial */
-} /* namespace rushhour */
+}  // namespace trial
+}  // namespace rushhour
 
-#endif /* RUSHHOUR_RUSHHOUR_TRIAL_TRACKINGCONTEXT_H_ */
+#endif  // RUSHHOUR_RUSHHOUR_TRIAL_TRACKINGCONTEXT_H_

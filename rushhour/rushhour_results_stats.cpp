@@ -7,12 +7,10 @@ namespace rushhour {
 namespace results {
 
 Stats::Stats()
-: sum_{0.0}
-, min_{std::numeric_limits<double>::max()}
-, max_{std::numeric_limits<double>::min()}
-, data_unsorted_{false}
-{}
-
+    : sum_{0.0},
+      min_{std::numeric_limits<double>::max()},
+      max_{std::numeric_limits<double>::min()},
+      data_unsorted_{false} {}
 
 Stats& Stats::operator<<(double value) {
   data_.push_back(value);
@@ -27,9 +25,7 @@ Stats& Stats::operator<<(double value) {
   return *this;
 }
 
-std::size_t Stats::count() const {
-  return data_.size();
-}
+std::size_t Stats::count() const { return data_.size(); }
 
 double Stats::average() const {
   if (count() == 0) {
@@ -89,5 +85,5 @@ double Stats::percentile(double p) const {
   }
 }
 
-} /* namespace results */
-} /* namespace rushhour */
+}  // namespace results
+}  // namespace rushhour

@@ -44,9 +44,10 @@ std::ostream& operator<<(std::ostream& os, const Summary& summary) {
   os << "Count: " << summary.count_ << std::endl;
   os << "Input rate: " << summary.input_rate_ << " /s" << std::endl;
   os << "Throughput: " << summary.throughput_ << " /s" << std::endl;
-  os << "95% latency: " << summary.latency_ms_stats_.percentile(0.95) << " ms" << std::endl;
+  os << "95% latency: " << summary.latency_ms_stats_.percentile(0.95) 
+     << " ms" << std::endl;
   return os;
 }
 
-} /* namespace results */
-} /* namespace rushhour */
+}  // namespace results
+}  // namespace rushhour

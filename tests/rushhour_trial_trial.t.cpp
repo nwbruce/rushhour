@@ -56,5 +56,5 @@ BOOST_AUTO_TEST_CASE(Trial_NoErrorsOnFixedSchedule) {
   }
 }
 
-} /* namespace trial */
-} /* namespace rushhour */
+}  // namespace trial
+}  // namespace rushhour

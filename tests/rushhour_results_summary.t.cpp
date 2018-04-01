@@ -22,5 +22,5 @@ BOOST_AUTO_TEST_CASE(Summary_PrintsNicely) {
   std::cout << summary;
 }
 
-} /* namespace results */
-} /* namespace rushhour */
+}  // namespace results
+}  // namespace rushhour

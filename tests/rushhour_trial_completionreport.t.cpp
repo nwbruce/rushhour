@@ -41,5 +41,5 @@ BOOST_AUTO_TEST_CASE(CompletionReport_OnFailed) {
   BOOST_CHECK(clock_range.contains(result.second));
 }
 
-} /* namespace trial */
-} /* namespace rushhour */
+}  // namespace trial
+}  // namespace rushhour

@@ -26,5 +26,5 @@ results::Result TrackingContext::get_result(const std::chrono::steady_clock::tim
   }
 }
 
-} /* namespace trial */
-} /* namespace rushhour */
+}  // namespace trial
+}  // namespace rushhour

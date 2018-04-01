@@ -17,19 +17,23 @@ struct Trial {
   using PrepareFunction = std::function<void(std::uint32_t)>;
   using SendFunction = std::function<void(CompletionReport*)>;
 
-  static std::vector<results::Result> run(const schedule::Schedule& input_schedule,
-                                          SendFunction do_send,
-                                          std::chrono::milliseconds completion_wait_timeout = std::chrono::milliseconds(5000),
-                                          std::size_t additional_threads = 0);
+  static std::vector<results::Result> run(
+    const schedule::Schedule& input_schedule,
+    SendFunction do_send,
+    std::chrono::milliseconds completion_wait_timeout = 
+        std::chrono::milliseconds(5000),
+    std::size_t additional_threads = 0);
 
-  static std::vector<results::Result> run(const schedule::Schedule& input_schedule,
-                                          PrepareFunction do_prepare,
-                                          SendFunction do_send,
-                                          std::chrono::milliseconds completion_wait_timeout = std::chrono::milliseconds(5000),
-                                          std::size_t additional_threads = 0);
+  static std::vector<results::Result> run(
+    const schedule::Schedule& input_schedule,
+    PrepareFunction do_prepare,
+    SendFunction do_send,
+    std::chrono::milliseconds completion_wait_timeout =
+        std::chrono::milliseconds(5000),
+    std::size_t additional_threads = 0);
 };
 
-} /* namespace trial */
-} /* namespace rushhour */
+}  // namespace trial
+}  // namespace rushhour
 
-#endif /* RUSHHOUR_RUSHHOUR_TRIAL_TRIAL_H_ */
+#endif  // RUSHHOUR_RUSHHOUR_TRIAL_TRIAL_H_

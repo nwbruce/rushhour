@@ -21,5 +21,5 @@ std::uint32_t CompletionReport::index() const {
   return index_;
 }
 
-} /* namespace trial */
-} /* namespace rushhour */
+}  // namespace trial
+}  // namespace rushhour

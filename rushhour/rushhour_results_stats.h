@@ -27,7 +27,7 @@ private:
   mutable bool data_unsorted_;
 };
 
-} /* namespace results */
-} /* namespace rushhour */
+}  // namespace results
+}  // namespace rushhour
 
-#endif /* RUSHHOUR_RUSHHOUR_RESULTS_STATS_H_ */
+#endif  // RUSHHOUR_RUSHHOUR_RESULTS_STATS_H_

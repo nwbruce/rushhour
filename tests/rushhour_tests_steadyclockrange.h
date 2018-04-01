@@ -36,7 +36,7 @@ private:
   std::chrono::steady_clock::time_point end_;
 };
 
-} /* namespace tests */
-} /* namespace rushhour */
+}  // namespace tests
+}  // namespace rushhour
 
-#endif /* TESTS_RUSHHOUR_TESTS_STEADYCLOCKRANGE_H_ */
+#endif  // TESTS_RUSHHOUR_TESTS_STEADYCLOCKRANGE_H_

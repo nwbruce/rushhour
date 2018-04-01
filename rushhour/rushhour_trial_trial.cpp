@@ -96,5 +96,5 @@ std::vector<results::Result> Trial::run(const schedule::Schedule& input_schedule
   return results;
 }
 
-} /* namespace trial */
-} /* namespace rushhour */
+}  // namespace trial
+}  // namespace rushhour

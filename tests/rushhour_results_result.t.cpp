@@ -8,5 +8,5 @@ BOOST_AUTO_TEST_CASE(Result_XXX) {
   BOOST_CHECK_EQUAL(true, true);
 }
 
-} /* namespace results */
-} /* namespace rushhour */
+}  // namespace results
+}  // namespace rushhour

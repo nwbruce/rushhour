@@ -24,7 +24,7 @@ private:
   std::uint32_t index_;
 };
 
-} /* namespace trial */
-} /* namespace rushhour */
+}  // namespace trial
+}  // namespace rushhour
 
-#endif /* RUSHHOUR_RUSHHOUR_TRIAL_COMPLETIONREPORT_H_ */
+#endif  // RUSHHOUR_RUSHHOUR_TRIAL_COMPLETIONREPORT_H_
