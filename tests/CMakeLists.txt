@@ -13,12 +13,8 @@ set(sources
   rushhour_trial_trial.t.cpp
   rushhour_results_result.t.cpp
   rushhour_results_stats.t.cpp
-  rushhour_results_summary.t.cpp)
-
-set(Boost_USE_STATIC_LIBS ON)
-find_package(Boost REQUIRED COMPONENTS unit_test_framework)
-
-find_package(Threads REQUIRED)
+  rushhour_results_summary.t.cpp
+  rushhour_results_rangegroup.t.cpp)
 
 if (Boost_FOUND)
 

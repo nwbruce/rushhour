@@ -10,5 +10,11 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 enable_testing()
 
+
+set(Boost_USE_STATIC_LIBS ON)
+find_package(Boost REQUIRED COMPONENTS unit_test_framework)
+
+find_package(Threads REQUIRED)
+
 add_subdirectory (rushhour)
 add_subdirectory (tests)
