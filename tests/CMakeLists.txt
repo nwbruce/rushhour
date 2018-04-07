@@ -18,6 +18,8 @@ set(sources
 set(Boost_USE_STATIC_LIBS ON)
 find_package(Boost REQUIRED COMPONENTS unit_test_framework)
 
+find_package(Threads REQUIRED)
+
 if (Boost_FOUND)
 
 add_executable(rushhour_test
@@ -27,7 +29,7 @@ target_include_directories(rushhour_test
   PUBLIC ${Boost_INCLUDE_DIRS} ../rushhour .)
 
 target_link_libraries(rushhour_test
-  rushhour ${Boost_LIBRARIES})
+  rushhour ${Boost_LIBRARIES} Threads::Threads)
 
 add_test(NAME unit_tests COMMAND rushhour_test)
 
